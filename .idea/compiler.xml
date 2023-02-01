@@ -6,9 +6,10 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="designPatterns" />
         <module name="clipboard" />
         <module name="modules" />
-        <module name="designPatterns" />
+        <module name="eventCenter" />
       </profile>
     </annotationProcessing>
   </component>
