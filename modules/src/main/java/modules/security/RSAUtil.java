@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-public class RSAUtils {
+public class RSAUtil {
     public static final String CHARSET = "UTF-8";
     public static final String RSA_ALGORITHM = "RSA"; // ALGORITHM ['ælgərɪð(ə)m] 算法的意思
 
@@ -194,7 +194,7 @@ public class RSAUtils {
 
     // 简单测试____________
     public static void main(String[] args) throws Exception {
-        Map<String, String> keyMap = RSAUtils.createKeys(1024);
+        Map<String, String> keyMap = RSAUtil.createKeys(1024);
         String publicKey = keyMap.get("publicKey");
         String privateKey = keyMap.get("privateKey");
         System.out.println("公钥: \n\r" + publicKey);
@@ -205,9 +205,9 @@ public class RSAUtils {
                 + "心中揣测，互相询问：所谓午朝是否讹传？";
         System.out.println("\r明文：\r\n" + str);
         System.out.println("\r明文大小：\r\n" + str.getBytes().length);
-        String encodedData = RSAUtils.publicEncrypt(str, RSAUtils.getPublicKey(publicKey));  //传入明文和公钥加密,得到密文
+        String encodedData = RSAUtil.publicEncrypt(str, RSAUtil.getPublicKey(publicKey));  //传入明文和公钥加密,得到密文
         System.out.println("密文：\r\n" + encodedData);
-        String decodedData = RSAUtils.privateDecrypt(encodedData, RSAUtils.getPrivateKey(privateKey)); //传入密文和私钥,得到明文
+        String decodedData = RSAUtil.privateDecrypt(encodedData, RSAUtil.getPrivateKey(privateKey)); //传入密文和私钥,得到明文
         System.out.println("解密后文字: \r\n" + decodedData);
 
     }

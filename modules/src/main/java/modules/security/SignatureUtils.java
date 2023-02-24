@@ -2,9 +2,6 @@ package modules.security;
 
 import java.io.File;
 import java.io.FileWriter;
-import java.io.Writer;
-import java.nio.charset.StandardCharsets;
-import java.security.KeyPair;
 import java.security.Signature;
 import java.util.Map;
 
@@ -12,7 +9,7 @@ public class SignatureUtils {
 
     public static void main(String[] args) throws Exception {
         Signature signature = Signature.getInstance("SHA256withRSA");
-        Map<String, String> map = RSAUtils.createKeys(2048);
+        Map<String, String> map = RSAUtil.createKeys(2048);
         String privateKey = map.get("privateKey");
         String publicKey = map.get("publicKey");
 
@@ -23,14 +20,14 @@ public class SignatureUtils {
         writer.close();
         writer0.close();
 
-        signature.initSign(RSAUtils.getPrivateKey(privateKey));
+        signature.initSign(RSAUtil.getPrivateKey(privateKey));
         //加解密数据
         byte[] data = "hello world".getBytes();
         //数据签名
         signature.update(data);
         byte[] digest = signature.sign();
         //数据解密加验证
-        signature.initVerify(RSAUtils.getPublicKey(publicKey));
+        signature.initVerify(RSAUtil.getPublicKey(publicKey));
         signature.update(data);
         System.out.println("验证结果:" + signature.verify(digest));
     }

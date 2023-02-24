@@ -12,5 +12,9 @@
         <module name="eventCenter" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="asmTech" target="8" />
+      <module name="developHelper" target="8" />
+    </bytecodeTargetLevel>
   </component>
 </project>
