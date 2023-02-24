@@ -26,20 +26,20 @@ public class TcpSocketServer {
 
         // 服务端监听 1111 端口
         ServerSocket serverSocket = new ServerSocket(1111);
-        System.out.println("等待连接");
+        System.out.println("Wait for the connection");
         Socket client = serverSocket.accept();
         System.out.println(client.getInetAddress());
-        System.out.println("连接成功！");
+        System.out.println("The connection was successful!");
         while (true) {
             // 获取客户端输入流
             InputStream inputStream = client.getInputStream();
             byte[] bytes = new byte[1024];
             int read = inputStream.read(bytes);
             // 客户端发来的消息
-            System.out.println("客户端：" + new String(bytes, 0, read, Charset.defaultCharset()));
+            System.out.println("client: " + new String(bytes, 0, read, StandardCharsets.UTF_8));
 
             // 给客户端发端消息
-            System.out.print("请输入：");
+            System.out.print("Please enter:");
             String nextLine = scanner.next();
             if ("out".equals(nextLine)) {
                 break;
@@ -47,8 +47,12 @@ public class TcpSocketServer {
             client.getOutputStream().write(nextLine.getBytes(StandardCharsets.UTF_8));
         }
     }
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args)  {
         TcpSocketServer tcpSocketServer = new TcpSocketServer();
-        tcpSocketServer.server();
+        try {
+            tcpSocketServer.server();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

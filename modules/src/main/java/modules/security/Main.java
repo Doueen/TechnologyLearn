@@ -1,14 +1,6 @@
 package modules.security;
 
 
-import java.io.FileWriter;
-import java.io.Writer;
-import java.nio.charset.StandardCharsets;
-import java.security.Key;
-import java.security.KeyPair;
-import java.security.PublicKey;
-import java.util.Base64;
-import java.util.Date;
 import java.util.Map;
 
 public class Main {
@@ -20,12 +12,12 @@ public class Main {
 
 
 
-        Map<String,String> map=RSAUtils.createKeys(2048);
-       String encRes1= RSAUtils.publicEncrypt(plainTxt, RSAUtils.getPublicKey(map.get("publicKey")));
-        String encRes2= RSAUtils.publicEncrypt(plainTxt, RSAUtils.getPublicKey(map.get("publicKey")));
+        Map<String,String> map= RSAUtil.createKeys(2048);
+       String encRes1= RSAUtil.publicEncrypt(plainTxt, RSAUtil.getPublicKey(map.get("publicKey")));
+        String encRes2= RSAUtil.publicEncrypt(plainTxt, RSAUtil.getPublicKey(map.get("publicKey")));
 
-        String decRes=RSAUtils.privateDecrypt(encRes1,RSAUtils.getPrivateKey(map.get("privateKey")));
-        String decRes2=RSAUtils.privateDecrypt(encRes2,RSAUtils.getPrivateKey(map.get("privateKey")));
+        String decRes= RSAUtil.privateDecrypt(encRes1, RSAUtil.getPrivateKey(map.get("privateKey")));
+        String decRes2= RSAUtil.privateDecrypt(encRes2, RSAUtil.getPrivateKey(map.get("privateKey")));
 
         System.out.println(encRes1);
         System.out.println(encRes2);
