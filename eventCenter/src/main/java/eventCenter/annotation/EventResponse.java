@@ -7,7 +7,7 @@ import java.lang.annotation.Target;
 
 /**
  * @author admin
- * @Description
+ * @description
  * @create 2022-10-21 12:50
  */
 @Target({ElementType.METHOD,ElementType.FIELD})
@@ -20,11 +20,6 @@ public @interface EventResponse {
      */
     String comment() default "";
 
-    /**
-     * 参数
-     * @return
-     */
-    int parameter() default 0;
 
     /**
      * 事件码

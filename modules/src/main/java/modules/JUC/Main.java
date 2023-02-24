@@ -5,20 +5,12 @@ import java.io.IOException;
 
 /**
  * @author ZhangHongzheng
- * @Description
+ * @description
  * @create 2023-01-04 10:30
  */
 public class Main {
     public static void main(String[] args) throws IOException {
         setDefaultUncaughtExceptionHandler();
-
-
-
-
-
-
-
-
 
     }
 

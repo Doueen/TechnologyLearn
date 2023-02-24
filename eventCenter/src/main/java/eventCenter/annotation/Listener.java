@@ -7,7 +7,7 @@ import java.lang.annotation.Target;
 
 /**
  * @author admin
- * @Description
+ * @description
  * @create 2022-10-21 12:57
  */
 @Target(ElementType.TYPE)

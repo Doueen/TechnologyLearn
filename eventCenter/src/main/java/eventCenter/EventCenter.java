@@ -2,6 +2,7 @@ package eventCenter;
 
 import eventCenter.annotation.EventResponse;
 import eventCenter.annotation.Listener;
+import eventCenter.exception.EventBroadcastException;
 
 import java.io.File;
 import java.io.IOException;
@@ -115,7 +116,8 @@ public class EventCenter {
                     EventResponse eventResponse = method.getAnnotation(EventResponse.class);
                     Object o = c.newInstance();
                     Response response;
-                    switch (eventResponse.eventCode()){
+                    int paraCount=method.getParameterCount();
+                    switch (paraCount){
                         case 0:{
                             response = new Response() {
                                 @Override
@@ -143,7 +145,7 @@ public class EventCenter {
                             break;
                         }
                         default:{
-                            throw new RuntimeException("尚未支持的参数个数");
+                            throw new EventBroadcastException("Number of parameters not yet supported:" +paraCount);
                         }
                     }
 

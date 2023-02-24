@@ -1,10 +1,10 @@
-package eventCenter;
+package observer;
 
 import eventCenter.annotation.EventResponse;
 import eventCenter.annotation.Listener;
 
 @Listener
-class Observer2 {
+public class Observer2 {
 
 
     @EventResponse(eventCode = -10086)
