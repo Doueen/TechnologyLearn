@@ -38,6 +38,11 @@ public class XmlBuilder {
         document.appendChild(rootElement);
     }
 
+    public XmlBuilder(Document document){
+        this.document=document;
+        rootElement = document.getDocumentElement();
+    }
+
     public void addElement(String parentElementName, String elementName) {
         Element parentElement;
         if (parentElementName.equals(rootElement.getTagName())) {
@@ -91,7 +96,6 @@ public class XmlBuilder {
         } catch (TransformerException e) {
             e.printStackTrace();
         }
-
         // 获取转换后的字符串
         String xmlString = writer.toString();
         xmlString = xmlString.replace("standalone=\"no\"", "");
