@@ -11,6 +11,7 @@
         <module name="clipboard" />
         <module name="modules" />
         <module name="eventCenter" />
+        <module name="callCmd" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

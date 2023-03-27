@@ -7,9 +7,19 @@
       <option name="url" value="https://repo.maven.apache.org/maven2" />
     </remote-repository>
     <remote-repository>
+      <option name="id" value="myRepository4_1" />
+      <option name="name" value="myRepository4_1" />
+      <option name="url" value="http://10.210.20.253:8081/repository/third-part/" />
+    </remote-repository>
+    <remote-repository>
       <option name="id" value="myRepository1_1" />
       <option name="name" value="myRepository1_1" />
       <option name="url" value="https://maven.aliyun.com/repository/public" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="myRepository1_1" />
+      <option name="name" value="myRepository1_1" />
+      <option name="url" value="http://10.210.20.253:8081/repository/third-part/" />
     </remote-repository>
     <remote-repository>
       <option name="id" value="central" />
@@ -29,6 +39,16 @@
     <remote-repository>
       <option name="id" value="myRepository2_1" />
       <option name="name" value="myRepository2_1" />
+      <option name="url" value="http://10.210.20.253:8081/repository/third-part/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="central" />
+      <option name="name" value="Central Repository" />
+      <option name="url" value="https://maven.aliyun.com/nexus/content/repositories/central" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="myRepository3_1" />
+      <option name="name" value="myRepository3_1" />
       <option name="url" value="http://10.210.20.253:8081/repository/third-part/" />
     </remote-repository>
     <remote-repository>

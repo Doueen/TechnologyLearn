@@ -16,7 +16,7 @@ public class HttpClient {
     private Map<String, String> headers;
     private final String params;
 
-    private String charset ="UTF-8";
+    private String charset = "UTF-8";
 
     public HttpClient(String url, String method, Map<String, String> headers, String params) {
         this.url = url;
@@ -53,20 +53,11 @@ public class HttpClient {
             out.flush();
             out.close();
         }
-
         int responseCode = conn.getResponseCode();
         System.out.println("Response Code: " + responseCode);
-
         if (responseCode >= 200 && responseCode < 300) {
             BufferedReader inputReader = new BufferedReader(new InputStreamReader(conn.getInputStream(), charset));
-            StringBuilder responseBuilder = new StringBuilder();
-            String inputLine;
-            while ((inputLine = inputReader.readLine()) != null) {
-                responseBuilder.append(inputLine);
-                responseBuilder.append("\n");
-            }
-            inputReader.close();
-            String responseBody = responseBuilder.toString();
+            String responseBody = read(inputReader);
             System.out.println("Response Body: \n" + responseBody);
             System.out.println("Response Headers: \n");
             for (Map.Entry<String, List<String>> header : conn.getHeaderFields().entrySet()) {
@@ -76,17 +67,21 @@ public class HttpClient {
             }
         } else {
             BufferedReader errorReader = new BufferedReader(new InputStreamReader(conn.getErrorStream(), charset));
-            StringBuilder errorBuilder = new StringBuilder();
-            String errorLine;
-            while ((errorLine = errorReader.readLine()) != null) {
-                errorBuilder.append(errorLine);
-                errorBuilder.append("\n");
-            }
-            errorReader.close();
-            String errorMessage = errorBuilder.toString();
-            System.out.println("Error Message: \n" + errorMessage);
+            String errorMessage = read(errorReader);
+            System.out.println("Error Message: n" + errorMessage);
         }
         conn.disconnect();
+    }
+
+    private String read(BufferedReader inputReader) throws IOException {
+        StringBuilder responseBuilder = new StringBuilder();
+        String inputLine;
+        while ((inputLine = inputReader.readLine()) != null) {
+            responseBuilder.append(inputLine);
+            responseBuilder.append("\n");
+        }
+        inputReader.close();
+        return responseBuilder.toString();
     }
 
 
