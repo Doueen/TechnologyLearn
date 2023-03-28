@@ -11,9 +11,8 @@ import java.util.HashMap;
  */
 public class Main {
     public static void main(String[] args) throws Exception{
-       // byte[] bytes0= Files.readAllBytes(Paths.get("C:\\Users\\admin\\Desktop\\attached/∆’Õ®Attached.asn1"));
         byte[] bytes1=Files.readAllBytes(Paths.get("C:\\Users\\admin\\Desktop\\attached/pbc2gAttached.asn1"));
-        byte[] bytes0=Files.readAllBytes(Paths.get("C:\\Users\\admin\\Desktop\\attached/pbc2gAttached1.asn1"));
+        byte[] bytes0=Files.readAllBytes(Paths.get("C:\\Users\\admin\\Desktop\\attached/ComAttached.asn1"));
         System.out.println(bytes0.length);
         System.out.println(bytes1.length);
         HashMap<Integer,Byte> map=new HashMap<Integer, Byte>(56);

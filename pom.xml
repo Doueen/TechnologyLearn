@@ -15,6 +15,7 @@
         <module>eventCenter</module>
         <module>net</module>
         <module>callCmd</module>
+        <module>hutoolTest</module>
     </modules>
 
     <properties>
