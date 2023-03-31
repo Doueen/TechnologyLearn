@@ -16,14 +16,12 @@ public @interface EventResponse {
 
     /**
      * 响应的描述
-     * @return
      */
     String comment() default "";
 
 
     /**
      * 事件码
-     * @return
      */
     int eventCode() default 0;
 }
